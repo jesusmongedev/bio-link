@@ -76,7 +76,7 @@ export default () => {
                     {project.description}
                   </div>
                   <div className="mt-2 flex">
-                    <div className="ml-auto bg-black justify-end">
+                    <div className="ml-auto justify-end">
                   <IconButton as="a" role="button" href={project.url} className="group/icon"   target="_blank" aria-label="Open">
                     <Lucide.IconExternalLink
                       aria-label="Open"
