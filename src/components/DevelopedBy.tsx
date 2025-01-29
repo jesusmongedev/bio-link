@@ -4,17 +4,12 @@ const DevelopedBy = () => {
   return (
     <div className="mb-8 font-mono text-neutral-10 text-xs text-center">
       <span>
-        Developed by{" "}
-        <a
-          href="https://github.com/jesusmongedev"
-          className="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
-          target="_blank"
-          aria-label="Developer"
-        >
-          {" "}
-          jmongedev
-        </a>
+         Evolución 2025 · Todos los derechos reservados ©
       </span>
+      <div className="text-xs text-center">
+      <p  >This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, <br /> This site is NOT endorsed by </p>
+      <p className="pt-1">Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.</p>
+    </div>
     </div>
   );
 };

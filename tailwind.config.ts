@@ -29,6 +29,14 @@ export default {
         sans: ["Inter"].concat(defaultTheme.fontFamily.sans),
         mono: ["Roboto Mono"].concat(defaultTheme.fontFamily.mono),
       },
+      animation: {
+        'border': 'border 4s linear infinite',
+      },
+      keyframes: {
+          'border': {
+              to: { '--border-angle': '360deg' },
+          }
+      }                    
     },
   },
   plugins: [radix.plugin],

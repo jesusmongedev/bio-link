@@ -1,0 +1,132 @@
+---
+---
+
+<div id="button-up" class="bg-black/60 fixed bottom-2 sm:bottom-4 sm:right-2 p-6 transition-opacity isolate rounded-xl shadow-lg ring-1 ring-white/5  border border-transparent animate-border bg-white-600/60 backdrop-blur-sm">
+	<div class="text-center mb-4">
+		<p class="text-muted dark:text-slate-300">
+		  Libera tu versión más poderosa.
+		</p>
+	  </div>
+	  <div class="cs-button-group">
+		<a href="https://chat.whatsapp.com/KVLIJUolusPFeDud9ppqDu" class="cs-button-solid cs-button1" target="_blank">¡TOCA AQUÍ PARA UNIRTE AL GRUPO VIP!</a>
+	</div>
+</div>
+
+<script>
+	import { $ } from "../lib/dom-selector"
+
+	document.addEventListener("DOMContentLoaded", () => {
+		let timeout: number = 0 // Identificador para clearTimeout
+		const $button = $("#scroll-to-top") as HTMLButtonElement
+
+		const DISPLAY = { BLOCK: "block", NONE: "none" } as const
+
+		// Función para mostrar u ocultar el botón
+		function toggleScrollToTop() {
+			const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+			const display = scrollTop > 20 ? DISPLAY.BLOCK : DISPLAY.NONE
+
+			if ($button) {
+				const parent = $button.closest("#button-up")
+				parent?.classList.toggle("opacity-0", display === DISPLAY.NONE)
+				$button.classList.toggle("cursor-default", display === DISPLAY.NONE)
+			}
+		}
+
+		function throttledScrollHandler() {
+			if (!timeout) {
+				timeout = requestAnimationFrame(() => {
+					toggleScrollToTop()
+					timeout = 0
+				})
+			}
+		}
+
+		window.addEventListener("scroll", throttledScrollHandler)
+
+		$button.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" })
+		})
+	})
+</script>
+
+<style>
+	 .cs-button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+   .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-align: center;
+    text-decoration: none;
+    min-width: 12.5rem;
+    margin: 0;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    color: var(--bodyTextColorWhite);
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+   .cs-button-solid:before {
+    content: "";
+    width: 0%;eader.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+[astro-icon].icon-light > * {
+  stroke-width: 1.2;
+}
+
+[astro-icon].icon-bold > * {
+  stroke-width: 2.4;
+}
+
+[data-aw-toggle-menu] path {
+  @apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+/* To deprecated */
+
+.dd *:first-child {
+  margin-top: 0;
+}
+
+    height: 100%;
+    background: #000;
+    opacity: 1;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+   .cs-button-solid:hover:before {
+    width: 100%;
+  }
+</style>

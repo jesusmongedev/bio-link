@@ -38,3 +38,8 @@ body {
   background: rgb(var(--primary-8));
   color: white;
 }
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
+}        

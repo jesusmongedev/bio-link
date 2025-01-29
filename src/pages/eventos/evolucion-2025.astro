@@ -1,0 +1,158 @@
+---
+import MainLayout from '~/layouts/MainLayout.astro';
+import HeroEvent from '~/components/HeroEvent.astro';
+import { Separator } from '~/components/ui/index.ts';
+import DevelopedBy from '~/components/DevelopedBy.tsx';
+import StickyCallToAction from '~/components/StickyCallToAction.astro';
+---
+
+<MainLayout
+  title="Evolución 2025"
+  description="Desarrolla la confianza para tomar decisiones audaces, la claridad para actuar bajo presión y la disciplina de quienes marcan la diferencia."
+>
+    <StickyCallToAction />
+    <HeroEvent/>
+    <!-- flyer center responsive aspect ratio 9:16 src='/flyer.png it should not be w-full add space' -->
+     <section class="flex flex-col items-center space-y-8 justify-center bg-white pb-12 md:pb-24">
+        <img class="w-full md:w-1/2" src="/flyer.png" alt="flyer" />
+         <div class="cs-button-group">
+             <a href="https://chat.whatsapp.com/KVLIJUolusPFeDud9ppqDu" class="cs-button-solid cs-button1" target="_blank">¡TOCA AQUÍ PARA UNIRTE AL GRUPO VIP!</a>
+            </div>
+        </section>
+        <div class="h-10"></div>
+    
+        </div>
+
+         {/* Enlaces a terminos y politicas de privacidad */}
+      <div class="text-xs text-center">
+        <p>
+          <a
+            href="/terminos"
+            class="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
+            target="_blank"
+            aria-label="Terminos y condiciones"
+          >
+            Terminos y condiciones
+          </a>
+        </p>
+        <p>
+          <a
+            href="/politicas-de-privacidad"
+            class="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
+            target="_blank"
+            aria-label="Politicas de privacidad"
+          >
+            Politicas de privacidad
+          </a>
+        </p>
+    </div>
+    
+        <Separator className="my-8" />
+    
+        <DevelopedBy />
+
+</MainLayout>
+
+<style>
+	:root {
+    /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
+    --primary: #d09e12;
+    --primaryLight: #ffba43;
+    --secondary: #ffba43;
+    --secondaryLight: #ffba43;
+    --headerColor: #1a1a1a;
+    --bodyTextColor: #4e4b66;
+    --bodyTextColorWhite: #fafbfc;
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+}
+.cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: .1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+}
+
+.cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+}
+ .cs-button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+   .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-align: center;
+    text-decoration: none;
+    min-width: 12.5rem;
+    margin: 0;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    color: var(--bodyTextColorWhite);
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+   .cs-button-solid:before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    background: #000;
+    opacity: 1;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+   .cs-button-solid:hover:before {
+    width: 100%;
+  }
+                            
+</style>
