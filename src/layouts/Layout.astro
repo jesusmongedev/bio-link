@@ -1,0 +1,146 @@
+---
+// @ts-nocheck 
+import './../styles/globals.css'
+
+import { I18N } from 'astrowind:config';
+
+import CommonMeta from './../components/common/CommonMeta.astro';
+import Favicons from './../components/Favicons.astro';
+import CustomStyles from './../components/CustomStyles.astro';
+import ApplyColorMode from './../components/common/ApplyColorMode.astro';
+import Metadata from './../components/common/Metadata.astro';
+import SiteVerification from './../components/common/SiteVerification.astro';
+import Analytics from './../components/common/Analytics.astro';
+import BasicScripts from './../components/common/BasicScripts.astro';
+import { headerData, footerData } from '~/navigation';
+
+
+// Uncomment line below to activate View Transitions
+// import { ViewTransitions } from 'astro:transitions';
+
+import type { MetaData as MetaDataType } from '~/types';
+// import Footer from '~/components/widgets/Footer.astro';
+import StickyCallToAction from '~/components/StickyCallToAction.astro';
+
+export interface Props {
+  metadata?: MetaDataType;
+  showStickyCallToAction?: boolean;
+  pixelId?: string;
+}
+
+const { metadata = {}, showStickyCallToAction, pixelId } = Astro.props;
+const { language, textDirection } = I18N;
+---
+
+<!doctype html>
+<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YD4P8J90V"></script>
+<script>
+  // @ts-nocheck
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-4YD4P8J90V');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+  // @ts-nocheck
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '626523346512408');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=626523346512408&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+    <CommonMeta />
+    <Favicons />
+    <CustomStyles />
+    <ApplyColorMode />
+    <Metadata {...metadata} />
+    <SiteVerification />
+    <!-- <Analytics /> -->
+
+    <!-- Uncomment line below to activate View Transitions -->
+    <!-- <ViewTransitions fallback="swap" /> -->
+  </head>
+
+  <body class="antialiased text-default bg-page tracking-tight">
+    <slot />
+    <!-- <Footer {...footerData} /> -->
+
+    <BasicScripts />
+    {showStickyCallToAction && <StickyCallToAction/> }
+
+    <style is:global>
+     img {
+        content-visibility: auto;
+      }
+      html {
+        scrollbar-gutter: stable;
+      }
+    
+    
+      /* Hiding class, making content visible only to screen readers but not visually */
+      /* "sr" meaning "screen-reader" */
+      .sr-only:not(:focus):not(:active) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    
+      @supports selector(::-webkit-scrollbar) {
+        ::-webkit-scrollbar {
+          width: 10px;
+          border-radius: 10px;
+        }
+    
+        ::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background-color: theme("colors.primary.1");
+          border: 2px solid transparent;
+          background-clip: content-box;
+        }
+    
+        ::-webkit-scrollbar-thumb:active {
+          background-color: #666;
+        }
+    
+        ::-webkit-scrollbar-track {
+          background: var(--background-image);
+        }
+    
+        ::-webkit-scrollbar-corner {
+          background: var(--background-image);
+        }
+      }
+    
+      @supports not selector(::-webkit-scrollbar) {
+        * {
+          scrollbar-color: theme("colors.primary.1") transparent;
+          scrollbar-width: thin;
+        }
+      }
+      
+    </style>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+  </body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN55XBHV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</html>

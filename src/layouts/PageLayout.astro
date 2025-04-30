@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/Header.astro';
+import { headerData, footerData } from '~/navigation';
+// import Footer from '~/components/widgets/Footer.astro';
+// import Announcement from '~/components/widgets/Announcement.astro';
+
+
+import type { MetaData } from '~/types.d.ts';
+import Footer from '~/components/Footer.astro';
+
+export interface Props {
+  metadata?: MetaData;
+  showStickyCallToAction?: boolean;
+  showHeader?: boolean;
+  pixelId?: string; // Nuevo prop
+}
+
+const { metadata, showStickyCallToAction = true, showHeader = true, pixelId } = Astro.props;
+---
+
+<Layout metadata={metadata} showStickyCallToAction={showStickyCallToAction} pixelId={pixelId}>
+  <slot name="announcement">
+    <!-- <Announcement /> -->
+  </slot>
+  <slot name="header">
+    {showHeader && <Header {...headerData} showRssFeed showToggleTheme />}
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...footerData} />
+  </slot>
+</Layout>

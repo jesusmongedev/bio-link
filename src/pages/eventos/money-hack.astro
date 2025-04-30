@@ -1,57 +1,23 @@
 ---
-import MainLayout from '~/layouts/MainLayout.astro';
 import HeroEvent from '~/components/HeroEvent.astro';
-import { Separator } from '~/components/ui/index.ts';
-import DevelopedBy from '~/components/DevelopedBy.tsx';
-import StickyCallToAction from '~/components/StickyCallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: "Money Hack",
+  ignoreTitleTemplate: true,
+};
 ---
 
-<MainLayout
-  title="Evolución 2025"
-  description="Desarrolla la confianza para tomar decisiones audaces, la claridad para actuar bajo presión y la disciplina de quienes marcan la diferencia."
->
-    <StickyCallToAction />
+<Layout metadata={metadata} showHeader={false} pixelId='626523346512408' >
     <HeroEvent/>
     <!-- flyer center responsive aspect ratio 9:16 src='/flyer.png it should not be w-full add space' -->
      <section class="flex flex-col items-center space-y-8 justify-center bg-white pb-12 md:pb-24">
-        <img class="w-full md:w-1/2" src="/flyer.png" alt="flyer" />
-         <div class="cs-button-group">
-             <a href="https://chat.whatsapp.com/G0HobmDkc6dLL7cVQIrYB0" class="cs-button-solid cs-button1" target="_blank">¡TOCA AQUÍ PARA UNIRTE AL GRUPO VIP!</a>
-            </div>
-        </section>
-        <div class="h-10"></div>
-    
+        <img class="w-full md:w-1/2" src="/money-hack.jpeg" alt="money-hack" />
+        <div class="cs-button-group">
+            <a href="https://chat.whatsapp.com/HZuLhpRDIkxJIqNhIAn0OW" class="cs-button-solid cs-button1" target="_blank">¡TOCA AQUÍ PARA UNIRTE AL GRUPO VIP!</a>
         </div>
-
-         {/* Enlaces a terminos y politicas de privacidad */}
-      <div class="text-xs text-center">
-        <p>
-          <a
-            href="/terminos"
-            class="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
-            target="_blank"
-            aria-label="Terminos y condiciones"
-          >
-            Terminos y condiciones
-          </a>
-        </p>
-        <p>
-          <a
-            href="/politicas-de-privacidad"
-            class="inline-block transition duration-300 hover:-translate-y-px outline-none hover:text-primary-10 focus-visible:text-primary-10"
-            target="_blank"
-            aria-label="Politicas de privacidad"
-          >
-            Politicas de privacidad
-          </a>
-        </p>
-    </div>
-    
-        <Separator className="my-8" />
-    
-        <DevelopedBy />
-
-</MainLayout>
+    </section>
+</Layout>
 
 <style>
 	:root {

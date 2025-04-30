@@ -21,11 +21,18 @@ export default {
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      secondary: 'var(--aw-color-secondary)',
+      accent: 'var(--aw-color-accent)',
+      default: 'var(--aw-color-text-default)',
+      muted: 'var(--aw-color-text-muted)',
+      whatsapp: 'var(--aw-color-whatsapp)',
       ...radix.colors,
     },
     extend: {
       fontFamily: {
         // TODO : fonts
+        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         sans: ["Inter"].concat(defaultTheme.fontFamily.sans),
         mono: ["Roboto Mono"].concat(defaultTheme.fontFamily.mono),
       },
@@ -39,5 +46,5 @@ export default {
       }                    
     },
   },
-  plugins: [radix.plugin],
+  plugins: [radix.plugin, ],
 } satisfies Config;
